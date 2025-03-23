@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book an Appointment</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Book Your Appointment</h1>
+  <form action="{{ url_for('main.booking') }}" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+    <br>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" name="phone" id="phone" required>
+    <br>
+
+    <label for="date">Appointment Date:</label>
+    <input type="date" name="date" id="date" required>
+    <br>
+
+    <label for="time">Appointment Time:</label>
+    <input type="time" name="time" id="time" required>
+    <br>
+
+    <label for="service">Service:</label>
+    <select name="service" id="service">
+      <option value="haircut">Haircut</option>
+      <option value="grooming">Grooming</option>
+      <!-- Add more services as needed -->
+    </select>
+    <br>
+
+    <button type="submit">Book Appointment</button>
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+</body>
+</html>
+{% endblock %}

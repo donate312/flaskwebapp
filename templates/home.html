@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Salah halaS {% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <h1>Salahs Salon</h1>
+        <p>Dont wait to book your next appointment!</p>
+        <a href="{{ url_for('main.booking') }}" class="'btn btn-primary">Book an appointment</a>
+    </div>
+    <br></br>
+    <div class="container mt-5" id="contact">
+        <h2 class="text-center">This is where you can find me</h2>
+        <p class="text-center">No Walk-ins, Must Book an Appointment.</p>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Email:</strong> info@salahssalon.com</li>
+              <li class="list-group-item"><strong>Phone:</strong> (555) 123-4567</li>
+              <li class="list-group-item"><strong>Address:</strong> 123 Fade St, Barberville, BK</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+{% endblock %}
